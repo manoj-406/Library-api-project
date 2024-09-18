@@ -1,3 +1,4 @@
+
 """This module will have api models of the library
 """
 from datetime import date
@@ -13,7 +14,7 @@ class BookRequest(BaseModel):
         example="Dopamine Detox")
     author: str = Field(
         ...,
-        example="Thibaut Meurissee", 
+        example="Thibaut Meurissee",
         description="author")
     isbn: str
     published_date: date
@@ -21,8 +22,10 @@ class BookRequest(BaseModel):
 class BookResponse(BaseModel):
     """This represents the response
     """
-    id: str = Field(...,description="id",example="book_1")
+    id: int = Field(...,description="id",example="1")
     title: str = Field(...,description="book title",example="Dopamine Detox")
     author: str = Field(...,example="Thibaut Meurissee", description="author")
     isbn: str
     published_date: date
+    class Config:
+        orm_mode = True
