@@ -53,12 +53,12 @@ def update_book(book_id: int, request: BookRequest, db: Session = Depends(get_db
     return db_book
 
 
-"""@app.delete("/books/{book_id}")
+@app.delete("/books/{book_id}")
 def delete_book(book_id: int, db: Session = Depends(get_db)):
-    #This method deletes a book
-    
+    """This method deletes a book
+    """
     db_book = db.query(Books).filter(Books.id == book_id).first()
     if db_book:
         db.delete(db_book)
         db.commit()
-    return {"message": "Book deleted successfully"}"""
+    return {"message": "Book deleted successfully"}
